@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Landing Page</title>
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- You can adjust the weights as needed; here are 100–900 -->
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;700;900&display=swap" 
+    rel="stylesheet"
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+  
+
+  <style>
+    /* Page-Wide Reset & Base Styles */
+
+    /* Flexbox container for video and text */
+
+
+
+/* Flexbox container for video and text */
+/* Flexbox container for video and text */
+.video-section {
+  display: flex;
+  align-items: flex-start; /* Align video and text at the top */
+  gap: 25px; /* Space between video and text */
+  margin-bottom: 30px;
+  max-width: 1400px; /* Limit container width for readability */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Video container with enforced aspect ratio */
+.video-container {
+  flex: 1; /* Video takes more space than text */
+  position: relative; /* Required for absolute iframe positioning */
+  width: 100%; /* Full width */
+  min-width: 300px;
+  max-width: 1080px; /* Limit video width on larger screens */
+}
+
+.video-container::before {
+  content: "";
+  display: block;
+  padding-top: 56.25%; /* 16:9 aspect ratio */
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none; /* Remove iframe border */
+  display: block; /* Fix iframe inline spacing issues */
+}
+
+/* Text container */
+.text-container {
+  flex: 1; /* Text takes less space compared to video */
+  max-width: 600px; /* Ensure consistent alignment with video */
+}
+
+/* Title styling */
+.video-title {
+  font-size: 1.4em; /* Proportional to video size */
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Description styling */
+.video-description {
+  font-size: 1em; /* Adjusted for readability */
+  line-height: 1.6;
+  color: #fafafa;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .video-section {
+    flex-direction: column; /* Stack video and text vertically */
+    gap: 15px; /* Reduce spacing for smaller screens */
+  }
+
+  .video-container {
+    max-width: 100%; /* Allow video to take full width */
+  }
+
+  .text-container {
+    max-width: 100%; /* Allow text to take full width */
+    text-align: left; /* Ensure proper alignment */
+  }
+
+  .video-title {
+    font-size: 1.2em; /* Slightly smaller titles for mobile */
+  }
+
+  .video-description {
+    font-size: 0.9em; /* Slightly smaller description for mobile */
+  }
+}
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: "Inter", sans-serif;
+      background-color: #333; /* Dark Grey background */
+      color: #fafafa;        /* Light text for contrast */
+      line-height: 1.5;
+    }
+
+    /* Header Styles */
+    header {
+      background-color: #1a1a1a;  /* Off-black header */
+      text-align: center;
+      padding: 12px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    /* Main Content Container */
+    main {
+      width: 90%;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem 0;
+    }
+
+    /* Section Spacing */
+    section {
+      margin-bottom: 3rem;
+    }
+    section h2 {
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    /* DEMOS Section (Vimeo Embeds) */
+    #demos .vimeo-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: flex-start; 
+    }
+    #demos iframe {
+      flex: 0px;
+      min-width: 0%;
+      max-width: 100%;
+      height: 275px; /* adjust as needed */
+      margin-bottom: 1rem;
+    }
+
+    /* MUSIC Section (Multiple MP3s) */
+    #music .audio-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    /* Make audio players fluid if you want them to expand full width */
+    #music audio {
+      width: 100%;
+      outline: none;
+    }
+
+    /* ABOUT ME Paragraphs */
+    #about-me p {
+      margin-bottom: 1.5rem;
+    }
+
+    /* SERVICES Section */
+    #services .services-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    #services .service-item {
+      flex: 1 1 200px;
+      min-width: 200px;
+      background-color: #444;
+      padding: 1rem;
+      border-radius: 5px;
+    }
+    #services .service-item h3 {
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+    #services .service-item p {
+      margin-bottom: 0.5rem;
+      font-weight: 400;
+    }
+    #services .service-item ul {
+      margin-left: 1rem;
+    }
+    #services .service-item ul li {
+      list-style: disc;
+      margin-left: 1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    /* CONTACT & NEWSLETTER Forms */
+    form {
+      max-width: 500px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+    }
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 0.8rem;
+      margin: 0.5rem 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+      font-family: inherit;
+    }
+    form button {
+      padding: 0.8rem;
+      background: #00e1ff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      margin-top: 0.5rem;
+    }
+    form button:hover {
+      background: #005bb5;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #1a1a1a;
+      color: #fafafa;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HEADER (1) -->
+  <header>
+    <h1>Jai2k</h1>
+  </header>
+
+  <main>
+    <!-- DEMOS (2) -->
+    <section id="demos">
+      <h2>Demos</h2>
+    
+      <!-- Video 1 -->
+      <div class="video-section">
+        <div class="video-container">
+          <iframe 
+            src="https://player.vimeo.com/video/1045130245?title=0&byline=0&portrait=0&amp;autopause=0&amp;player_id=0&amp;app_id=0"
+            frameborder="0"
+            allow="autoplay; fullscreen"
+            allowfullscreen>
+          ></iframe>
+        </div>
+        <div class="text-container">
+          <div class="video-title">"Charge" Open Source Movie by Blender Studios - Jai2k Audio and Soundtrack Remake</div>
+          <div class="video-description">
+            <em>One of my first audio-visual projects. This project helped me develop a structured process for breaking down and identifying sound sources and unique characteristics, with careful consideration of fundamentals like materials, setting sound absorption, implied context, viewing angles, stuff like that.</em>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Video 2 -->
+      <div class="video-section">
+        <div class="video-container">
+          <iframe 
+            src="https://player.vimeo.com/video/1045136921?title=0&byline=0&portrait=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+            frameborder="0"
+            allow="autoplay; fullscreen"
+            allowfullscreen>
+          ></iframe>
+        </div>
+        <div class="text-container">
+          <div class="video-title">2024 Microsoft Surface Pro Ad - Jai2k Audio and Soundtrack Remake <em>(Unofficial)</em></div>
+          <div class="video-description">
+          <em>My take on an unofficial audio remake project for this 2024 Surface Pro ad. Incorporated a lot of transition sounds I designed for this project. The music is an unreleased original titled "Plot Armor".</em>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MUSIC (3) --><!----------------------------------------------------------------->
+
+<section id="music">
+  <h2>Music</h2>
+  <div class="audio-list">
+    <!-- Track 1 -->
+    <div class="track">
+      <div class="track-title"><strong>ASH with Notnevi & 13erry (2021 Release)</strong></div>
+      <div class="track-description"><em>Production & sound design by me, vocals & co-prod by Notnevi, vocals by 13erry</em></div>
+      <audio controls>
+        <source src="https://drive.google.com/uc?export=download&id=1kmf3rTRGUnfGWGdxh7z6qTcAAHUS74Bx"/> 
+        Your browser does not support the audio element.
+      </audio>
+      </div>
+    <!-- Track 4 -->
+    <div class="track">
+      <div class="track-title"><strong>Bodies!Bodies!Bodies! by ITSOKTOCRY & Notnevi (feat. Funeral) (Late 2023 Release)</strong></div>
+      <div class="track-description"><em>Got the opportunity to co-produce this track from ITSOKTOCRY's latest project HESH with my brother, Notnevi.</em></div>
+      <audio controls>
+        <source src="https://drive.google.com/uc?export=download&id=1ohtCJkwAtfWbu9T1eUtHw0_VDkZGIEde" type="audio/mpeg"/>
+        Your browser does not support the audio element.
+      </audio>
+    </div>  
+    <div class="track">
+      <div class="track-title"><strong>Lookas - Off Guard (Intrex Remix) (2018 Release)</strong></div>
+      <div class="track-description"><em>First place winning entry for a remix content hosted by Lookas and Splice in 2018, officially released in the Off Guard remix EP alongside Sam Lamar under my previous alias, Intrex.</em></div>
+      <audio controls>
+        <source src="https://drive.google.com/uc?export=download&id=FILE_ID" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+      </div>
+     <div class="track">
+      <div class="track-title"><strong>Bee Gees - Stayin' Alive (<em>Unofficial</em> Intrex Remix) (2018 Release)</strong></div>
+      <div class="track-description"><em>Unofficial remix of Bee Gee's Stayin' Alive made in 2018 under my previous alias, Intrex.</em></div>
+      <audio controls>
+        <source src="https://drive.google.com/uc?export=download&id=FILE_ID" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+    </div> 
+    <!-- Track 3 -->
+    <div class="track">
+      <div class="track-title"><strong>Neon World</strong></div>
+      <div class="track-description"><em>Original track released in 2019 under my previous alias, Intrex.</em></div>
+      <audio controls>
+        <source src="https://drive.google.com/uc?export=download&id=FILE_ID" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+    <!-- Track 5 -->
+    <div class="track">
+      <div class="track-title"><strong>Path Branch</strong></div>
+      <div class="track-description"><em>Original track released in 2021 under my previous alias, Intrex.</em></div>
+      <audio controls>
+        <source src="https://drive.google.com/uc?export=download&id=FILE_ID" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+    <!-- Track 4 -->
+    <div class="track">
+      <div class="track-title"><strong>Getaway</strong></div>
+      <div class="track-description"><em>Original track released in 2019 under my previous alias, Intrex.</em></div>
+      <audio controls>
+        <source src="https://drive.google.com/uc?export=download&id=FILE_ID" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+    </div>  
+    <!-- Track 3 -->
+    <div class="track">
+      <div class="track-title"><strong>Golf Pawn</strong></div>
+      <div class="track-description"><em>Unreleased track from 2020.</em></div>
+      <audio controls>
+        <source src="https://drive.google.com/uc?export=download&id=FILE_ID" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+    <!-- Track 5 -->
+    <div class="track">
+      <div class="track-title"><strong>Flea Market 2250</strong></div>
+      <div class="track-description"><em>Unreleased track from 2019.</em></div>
+      <audio controls>
+        <source src="https://drive.google.com/uc?export=download&id=FILE_ID" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+    <div class="track">
+      <div class="track-title"><strong>Breathing</strong></div>
+      <div class="track-description"><em>Unreleased track from early 2020.</em></div>
+      <audio controls>
+        <source src="https://drive.google.com/uc?export=download&id=FILE_ID" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+    <div class="track">
+      <div class="track-title"><strong>Natasha Beddingfield - Unwritten (Jai2k Remix)</strong></div>
+      <div class="track-description"><em>Unreleased / Unofficial bootleg remix of "Unwritten" by Natasha Beddingfield from early 2024.</em></div>
+      <audio controls>
+        <source src="https://drive.google.com/uc?export=download&id=FILE_ID" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+      </div>
+    <div class="track">
+      <div class="track-title"><strong>This Amazin' (feat. 13erry)</strong></div>
+      <div class="track-description"><em>Unreleased dance track from 2023, vocals by 13erry.</em></div>
+      <audio controls>
+        <source src="https://drive.google.com/uc?export=download&id=FILE_ID" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+    <!-- Track 2 -->
+    <div class="track">
+      <div class="track-title"><strong>Plot Armor</strong></div>
+      <div class="track-description"><em>Unreleased track (2025) </em></div>
+      <audio controls>
+        <source src="https://drive.google.com/uc?export=download&id=FILE_ID" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+    <!-- Track 3 -->
+    <!-- Track 5 -->
+    <div class="track">
+      <div class="track-title"><strong>boop</strong></div>
+      <div class="track-description"><em>boop</em></div>
+      <audio controls>
+        <source src="https://drive.google.com/uc?export=download&id=FILE_ID" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+    <!-- Track 2 -->
+    <div class="track">
+      <div class="track-title"><strong>boop</strong></div>
+      <div class="track-description"><em>boop</em></div>
+      <audio controls>
+        <source src="https://drive.google.com/uc?export=download&id=FILE_ID" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+    <!-- Track 3 -->
+    <div class="track">
+      <div class="track-title"><strong>Blind Conviction</strong></div>
+      <div class="track-description"><em>Unreleased(2025)</em></div>
+      <audio controls>
+        <source src="https://drive.google.com/uc?export=download&id=FILE_ID" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+    <div class="track">
+      <div class="track-title"><strong>Merciless Trend</strong></div>
+      <div class="track-description"><em>Unreleased track (2025)</em></div>
+      <audio controls>
+        <source src="https://drive.google.com/uc?export=download&id=FILE_ID" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+      </div>
+    <!-- Track 4 -->
+    <div class="track">
+      <div class="track-title"><strong>Condition</strong></div>
+      <div class="track-description"><em>Unreleased track (2025)</em></div>
+      <audio controls>
+        <source src="https://drive.google.com/uc?export=download&id=FILE_ID" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+    </div>  
+    <!-- Track 2 -->
+    <div class="track">
+      <div class="track-title"><strong>Navigator</strong></div>
+      <div class="track-description"><em>Unreleased track from late 2023, one of my first vocal attempts.</em></div>
+      <audio controls>
+        <source src="https://drive.google.com/uc?export=download&id=FILE_ID" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+    
+  </div>
+</section>
+
+    <!-- ABOUT ME (4) -->
+    <section id="about-me">
+      <h2>About Jai2k</h2>
+      <p>
+        Hi, my name's Aidan, or Jai2k. I’m a 24-year-old producer, composer, and sound designer 
+        based out of Miami. Music is a big part of who I am: I grew up with, and was raised by talented 
+        musicians on both sides of my family. At 12, my dad introduced me to my first 
+        production software, Logic Pro 9. From there I was hooked, 
+        always asking when I could use the computer to work on new ideas. By 
+        the time I was 15, I began releasing electronic music under the alias Intrex, 
+        drawing inspiration from artists like Noisia, Koan Sound, and Skrillex.
+      </p>
+      <p>
+        Over the years, I’ve picked up experience across genres 
+        like house, techno, hip hop, pop, drum n bass, bass music, trap, 
+        experimental, ambient, cinematic, and more. In 2022, I retired the 
+        Intrex alias to develop Jai2k, a project focused more on raw artistic expression through
+        deeper sonic experimenation and exploration.
+      </p>
+      <p>
+        I now offer professional sound services for ads, sonic branding, short films, 
+        YouTube videos, and video games — specializing in immersive and dynamic 
+        sound design & music. As I'm preparing my debut album for 2025, I'm excited about the role of artistic sound design in music 
+        and multimedia, and the increasing creative freedom we enjoy from rapidly evolving audio tech & collective collaboration.
+        Whether you’re a filmmaker, brand, indie game developer, or artist, i’m 
+        eager to hear about your project and how i could help bring it to life! 
+        </p>
+    </section>
+
+    <!-- SERVICES (5) -->
+    <section id="services">
+      <h2>Services</h2>
+      <div class="services-container">
+        <!-- Ads -->
+        <div class="service-item">
+          <h3>Ads</h3>
+          <p>Starting at $90</p>
+          <ul>
+            <li>Custom sound design & soundtrack</li>
+            <li>15–120 second spots</li>
+            <li>Multiple revisions available</li>
+          </ul>
+        </div>
+        <!-- Sonic Branding -->
+        <div class="service-item">
+          <h3>Sonic Branding</h3>
+          <p>Starting at $100</p>
+          <ul>
+            <li>Full audio identity creation</li>
+            <li>Logo stings & brand themes up to 15 seconds</li>
+            <li>3 revisions included</li>
+          </ul>
+        </div>
+        <!-- Short Films -->
+        <div class="service-item">
+          <h3>Short Films</h3>
+          <p>Starting at $250</p>
+          <ul>
+            <li>Custom sound design & soundtrack</li>
+            <li>1-30 minutes in length</li>
+            <li>Foley & dialogue cleanup</li>
+          </ul>
+        </div>
+        <!-- Video Games -->
+        <div class="service-item">
+          <h3>Video Games</h3>
+          <p>Starting at $175</p>
+          <ul>
+            <li>Dynamic game sound design & soundtrack</li>
+            <li>Implementation with middleware (FMOD)</li>
+            <li>Reliable communication</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT ME (6) -->
+    <section id="contact">
+      <h2>Contact Me</h2>
+      <form action="https://formspree.io/f/xvggvnog" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="_replyto" placeholder="Your Email" required />
+        <textarea name="message" rows="5" placeholder="Your Message"></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </section>
+
+    <!-- NEWSLETTER (7) -->
+    <section id="newsletter">
+      <h2>Newsletter</h2>
+      <form action="https://formspree.io/f/mwppwjpv" method="POST">
+        <input type="email" name="_replyto" placeholder="Your Email" required />
+        <button type="submit">Subscribe</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Jai2k. All rights reserved.</p>
+  </footer>
+</body>
+</html>
+
+
