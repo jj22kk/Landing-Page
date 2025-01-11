@@ -11,101 +11,27 @@
   <link 
     href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;700;900&display=swap" 
     rel="stylesheet"
+  >
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
-  
+  <!-- Additional Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" 
+    rel="stylesheet"
+  >
+
+  <!-- Font Awesome (for social icons) -->
+  <link 
+    rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" 
+    integrity="sha512-...your-integrity-hash..." 
+    crossorigin="anonymous" 
+    referrerpolicy="no-referrer"
+  />
 
   <style>
     /* Page-Wide Reset & Base Styles */
-
-    /* Flexbox container for video and text */
-
-
-
-/* Flexbox container for video and text */
-/* Flexbox container for video and text */
-.video-section {
-  display: flex;
-  align-items: flex-start; /* Align video and text at the top */
-  gap: 25px; /* Space between video and text */
-  margin-bottom: 30px;
-  max-width: 1400px; /* Limit container width for readability */
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Video container with enforced aspect ratio */
-.video-container {
-  flex: 1; /* Video takes more space than text */
-  position: relative; /* Required for absolute iframe positioning */
-  width: 100%; /* Full width */
-  min-width: 300px;
-  max-width: 1080px; /* Limit video width on larger screens */
-}
-
-.video-container::before {
-  content: "";
-  display: block;
-  padding-top: 56.25%; /* 16:9 aspect ratio */
-}
-
-.video-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: none; /* Remove iframe border */
-  display: block; /* Fix iframe inline spacing issues */
-}
-
-/* Text container */
-.text-container {
-  flex: 1; /* Text takes less space compared to video */
-  max-width: 600px; /* Ensure consistent alignment with video */
-}
-
-/* Title styling */
-.video-title {
-  font-size: 1.4em; /* Proportional to video size */
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-/* Description styling */
-.video-description {
-  font-size: 1em; /* Adjusted for readability */
-  line-height: 1.6;
-  color: #fafafa;
-}
-
-/* Responsive Design */
-@media (max-width: 600px) {
-  .video-section {
-    flex-direction: column; /* Stack video and text vertically */
-    gap: 15px; /* Reduce spacing for smaller screens */
-  }
-
-  .video-container {
-    max-width: 100%; /* Allow video to take full width */
-  }
-
-  .text-container {
-    max-width: 100%; /* Allow text to take full width */
-    text-align: left; /* Ensure proper alignment */
-  }
-
-  .video-title {
-    font-size: 1.2em; /* Slightly smaller titles for mobile */
-  }
-
-  .video-description {
-    font-size: 0.9em; /* Slightly smaller description for mobile */
-  }
-}
-
     * {
       box-sizing: border-box;
       margin: 0;
@@ -128,6 +54,20 @@
       margin: 0;
       font-size: 2rem;
       font-weight: 700;
+    }
+
+    /* --- NEW: Social Icons in Header --- */
+    .social-icons {
+      margin-top: 8px;
+    }
+    .social-icons a {
+      margin: 0 8px;
+      color: #fafafa;
+      font-size: 1.5rem;
+      text-decoration: none;
+    }
+    .social-icons a:hover {
+      color: #00e1ff; /* Highlight color on hover */
     }
 
     /* Main Content Container */
@@ -169,7 +109,6 @@
       flex-direction: column;
       gap: 1rem;
     }
-    /* Make audio players fluid if you want them to expand full width */
     #music audio {
       width: 100%;
       outline: none;
@@ -249,6 +188,73 @@
       background: #1a1a1a;
       color: #fafafa;
     }
+
+    /* Flexbox container for video and text */
+    .video-section {
+      display: flex;
+      align-items: flex-start; /* Align video and text at the top */
+      gap: 25px; /* Space between video and text */
+      margin-bottom: 30px;
+      max-width: 1400px; /* Limit container width for readability */
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .video-container {
+      flex: 1; /* Video takes more space than text */
+      position: relative; /* Required for absolute iframe positioning */
+      width: 100%;
+      min-width: 300px;
+      max-width: 1080px; /* Limit video width on larger screens */
+    }
+    .video-container::before {
+      content: "";
+      display: block;
+      padding-top: 56.25%; /* 16:9 aspect ratio */
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none; /* Remove iframe border */
+      display: block; /* Fix iframe inline spacing issues */
+    }
+    .text-container {
+      flex: 1; /* Text takes less space compared to video */
+      max-width: 600px; /* Ensure consistent alignment with video */
+    }
+    .video-title {
+      font-size: 1.4em; /* Proportional to video size */
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .video-description {
+      font-size: 1em; /* Adjusted for readability */
+      line-height: 1.6;
+      color: #fafafa;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .video-section {
+        flex-direction: column; /* Stack video and text vertically */
+        gap: 15px; /* Reduce spacing for smaller screens */
+      }
+      .video-container {
+        max-width: 100%; /* Allow video to take full width */
+      }
+      .text-container {
+        max-width: 100%; /* Allow text to take full width */
+        text-align: left; /* Ensure proper alignment */
+      }
+      .video-title {
+        font-size: 1.2em; /* Slightly smaller titles for mobile */
+      }
+      .video-description {
+        font-size: 0.9em; /* Slightly smaller description for mobile */
+      }
+    }
   </style>
 </head>
 
@@ -256,6 +262,8 @@
   <!-- HEADER (1) -->
   <header>
     <h1>Jai2k</h1>
+    <!-- Social Icons -->
+    
   </header>
 
   <main>
@@ -271,12 +279,20 @@
             frameborder="0"
             allow="autoplay; fullscreen"
             allowfullscreen>
-          ></iframe>
+          </iframe>
         </div>
         <div class="text-container">
-          <div class="video-title">"Charge" Open Source Movie by Blender Studios - Jai2k Audio and Soundtrack Remake</div>
+          <div class="video-title">
+            "Charge" Open Source Movie by Blender Studios - Jai2k Audio and Soundtrack Remake
+          </div>
           <div class="video-description">
-            <em>One of my first audio-visual projects. This project helped me develop a structured process for breaking down and identifying sound sources and unique characteristics, with careful consideration of fundamentals like materials, setting sound absorption, implied context, viewing angles, stuff like that.</em>
+            <em>
+              One of my first audio-visual projects. This project helped me develop 
+              a structured process for breaking down and identifying sound sources 
+              and unique characteristics, with careful consideration of fundamentals 
+              like materials, setting sound absorption, implied context, viewing angles, 
+              stuff like that.
+            </em>
           </div>
         </div>
       </div>
@@ -289,112 +305,119 @@
             frameborder="0"
             allow="autoplay; fullscreen"
             allowfullscreen>
-          ></iframe>
+          </iframe>
         </div>
         <div class="text-container">
-          <div class="video-title">2024 Microsoft Surface Pro Ad - Jai2k Audio and Soundtrack Remake <em>(Unofficial)</em></div>
+          <div class="video-title">
+            2024 Microsoft Surface Pro Ad - Jai2k Audio and Soundtrack Remake 
+            <em>(Unofficial)</em>
+          </div>
           <div class="video-description">
-          <em>My take on an unofficial audio remake project for this 2024 Surface Pro ad. Incorporated a lot of transition sounds I designed for this project. The music is an unreleased original titled "Plot Armor".</em>
+            <em>
+              My take on an unofficial audio remake project for this 2024 Surface Pro ad. 
+              Incorporated a lot of transition sounds I designed for this project. 
+              The music is an unreleased original titled "Plot Armor".
+            </em>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- MUSIC (3) --><!----------------------------------------------------------------->
-
-<section id="music">
-  <h2>Music</h2>
-  <div class="audio-list">
-    <!-- Track 1 -->
-    <div class="track">
-      <div class="track-title"><strong>ASH with Notnevi & 13erry (2021 Release)</strong></div>
-      <div class="track-description"><em>Production & sound design by me, vocals & co-prod by Notnevi, vocals by 13erry</em></div>
+    <!-- MUSIC (3) -->
+    <section id="music">
+      <h2>Music</h2>
+      <div class="audio-list">
+        <!-- Track 1 -->
+        <div class="track">
+          <div class="track-title"><strong>ASH with Notnevi & 13erry (2021 Release)</strong></div>
+          <div class="track-description"><em>Production & sound design by me, vocals & co-prod by Notnevi, vocals by 13erry</em></div>
+        
+            <iframe width="100%" height="100" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2006510511%3Fsecret_token%3Ds-leS03io6nGj&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/jai2000" title="Jai2k" target="_blank" style="color: #cccccc; text-decoration: none;">Jai2k</a> · <a href="https://soundcloud.com/jai2000/ash/s-leS03io6nGj" title="ash" target="_blank" style="color: #cccccc; text-decoration: none;"></a></div> 
+          
+        
+          </div>
+        <div class="track">
+          <div class="track-title"><strong>Lookas - Off Guard (Intrex Remix) (2018 Release)</strong></div>
+          <div class="track-description"><em>First place winning entry for a remix content hosted by Lookas and Splice in 2018, officially released in the Off Guard remix EP alongside Sam Lamar under my previous alias, Intrex.</em></div>
+          <iframe width="100%" height="100" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2006510555%3Fsecret_token%3Ds-YzQ6LtgSLFe&color=&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #333;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/jai2000" title="Jai2k" target="_blank" style="color: #cccccc; text-decoration: none;">Jai2k</a> · <a href="https://soundcloud.com/jai2000/off-guard-rmx/s-YzQ6LtgSLFe" title="Lookas - Off Guard (Intrex Remix)" target="_blank" style="color: #333; text-decoration: none;"></a></div>
+          </div>
+         <div class="track">
+          <div class="track-title"><strong>Bee Gees - Stayin' Alive (<em>Unofficial</em> Intrex Remix) (2018 Release)</strong></div>
+          <div class="track-description"><em>Unofficial remix of Bee Gee's Stayin' Alive made in 2018 under previous alias(Intrex).</em></div>
+          <iframe width="100%" height="100" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2006510527%3Fsecret_token%3Ds-UOetoiephai&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/jai2000" title="Jai2k" target="_blank" style="color: #cccccc; text-decoration: none;">Jai2k</a> · <a href="https://soundcloud.com/jai2000/stayin-alive-2018/s-UOetoiephai" title="stayin alive 2018" target="_blank" style="color: #cccccc; text-decoration: none;"></a></div>
+        </div> 
+        <!-- Track 3 -->
+        <div class="track">
+          <div class="track-title"><strong>Neon World</strong></div>
+          <div class="track-description"><em>Original track released in 2019 under previous alias (Intrex).</em></div>
+          <iframe width="100%" height="100" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2006510583%3Fsecret_token%3Ds-F1BySyF9gZz&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/jai2000" title="Jai2k" target="_blank" style="color: #cccccc; text-decoration: none;">Jai2k</a> · <a href="https://soundcloud.com/jai2000/neon_world_faded_highlight/s-F1BySyF9gZz" title="neon_world_faded_highlight" target="_blank" style="color: #cccccc; text-decoration: none;"></a></div>
+        </div>
+        <!-- Track 5 -->
+        <div class="track">
+          <div class="track-title"><strong>Path Branch</strong></div>
+          <div class="track-description"><em>Original track released in 2021 under previous alias (Intrex).</em></div>
+          <iframe width="100%" height="100" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2006510575%3Fsecret_token%3Ds-NdCluXCupvf&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/jai2000" title="Jai2k" target="_blank" style="color: #cccccc; text-decoration: none;">Jai2k</a> · <a href="https://soundcloud.com/jai2000/path-branch/s-NdCluXCupvf" title="path branch" target="_blank" style="color: #cccccc; text-decoration: none;"></a></div>
+        </div>
+        <!-- Track 4 -->
+        <div class="track">
+          <div class="track-title"><strong>Getaway</strong></div>
+          <div class="track-description"><em>Original track released in 2019 under previous alias (Intrex).</em></div>
+          <iframe width="100%" height="100" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2006510551%3Fsecret_token%3Ds-NRySjxrnDBK&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/jai2000" title="Jai2k" target="_blank" style="color: #cccccc; text-decoration: none;">Jai2k</a> · <a href="https://soundcloud.com/jai2000/getaway/s-NRySjxrnDBK" title="getaway" target="_blank" style="color: #cccccc; text-decoration: none;"></a></div>
+        </div>  
+        <!-- Track 3 -->
+        <div class="track">
+          <div class="track-title"><strong>Golf Pawn</strong></div>
+          <div class="track-description"><em>Unreleased(2020)</em></div>
+          <iframe width="100%" height="100" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2006510519%3Fsecret_token%3Ds-4GKOtOp8A9N&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/jai2000" title="Jai2k" target="_blank" style="color: #cccccc; text-decoration: none;">Jai2k</a> · <a href="https://soundcloud.com/jai2000/golf-pawn/s-4GKOtOp8A9N" title="golf pawn" target="_blank" style="color: #cccccc; text-decoration: none;"></a></div>
+        </div>
+        <div class="track">
+          <div class="track-title"><strong>Breathing</strong></div>
+          <div class="track-description"><em>Unreleased(2020)</em></div>
+          <iframe width="100%" height="100" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2006510567%3Fsecret_token%3Ds-9ou1gpX7TQ5&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/jai2000" title="Jai2k" target="_blank" style="color: #cccccc; text-decoration: none;">Jai2k</a> · <a href="https://soundcloud.com/jai2000/breathing/s-9ou1gpX7TQ5" title="breathing" target="_blank" style="color: #cccccc; text-decoration: none;"></a></div>
+        </div>
+        <div class="track">
+          <div class="track-title"><strong>Natasha Beddingfield - Unwritten (Jai2k Remix)</strong></div>
+          <div class="track-description"><em>Unreleased / Unofficial bootleg remix of "Unwritten" by Natasha Beddingfield (2024).</em></div>
+          <iframe width="100%" height="100" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2006510547%3Fsecret_token%3Ds-Qg1wNGNTpT9&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/jai2000" title="Jai2k" target="_blank" style="color: #cccccc; text-decoration: none;">Jai2k</a> · <a href="https://soundcloud.com/jai2000/unwritten-jai2k-rmx/s-Qg1wNGNTpT9" title="unwritten jai2k rmx" target="_blank" style="color: #cccccc; text-decoration: none;"></a></div>
+          </div>
+        <div class="track">
+          <div class="track-title"><strong>This Amazin' (feat. 13erry)</strong></div>
+          <div class="track-description"><em>Unreleased(2023) vocals by 13erry</em></div>
+          <iframe width="100%" height="100" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2006510559%3Fsecret_token%3Ds-OyS02hKwohj&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/jai2000" title="Jai2k" target="_blank" style="color: #cccccc; text-decoration: none;">Jai2k</a> · <a href="https://soundcloud.com/jai2000/this-amazin/s-OyS02hKwohj" title="this amazin&#x27; (feat. 13erry)" target="_blank" style="color: #cccccc; text-decoration: none;"></a></div>
+        </div>
+        <!-- Track 2 -->
+        <div class="track">
+          <div class="track-title"><strong>Plot Armor</strong></div>
+          <div class="track-description"><em>Unreleased(2025)</em></div>
+          <iframe width="100%" height="100" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2006510523%3Fsecret_token%3Ds-BOR9WYco2ns&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/jai2000" title="Jai2k" target="_blank" style="color: #cccccc; text-decoration: none;">Jai2k</a> · <a href="https://soundcloud.com/jai2000/plot-armor/s-BOR9WYco2ns" title="plot armor" target="_blank" style="color: #cccccc; text-decoration: none;"></a></div>
+        </div>
     
-        <iframe width="100%" height="100" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2006510511%3Fsecret_token%3Ds-leS03io6nGj&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/jai2000" title="Jai2k" target="_blank" style="color: #cccccc; text-decoration: none;">Jai2k</a> · <a href="https://soundcloud.com/jai2000/ash/s-leS03io6nGj" title="ash" target="_blank" style="color: #cccccc; text-decoration: none;"></a></div> 
-      
-    
+        <div class="track">
+          <div class="track-title"><strong>Blind Conviction</strong></div>
+          <div class="track-description"><em>Unreleased(2025)</em></div>
+          <iframe width="100%" height="100" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2006510587%3Fsecret_token%3Ds-nCmgwhozXBh&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/jai2000" title="Jai2k" target="_blank" style="color: #cccccc; text-decoration: none;">Jai2k</a> · <a href="https://soundcloud.com/jai2000/blind-conviction/s-nCmgwhozXBh" title="blind conviction" target="_blank" style="color: #cccccc; text-decoration: none;"></a></div>
+        </div>
+        <div class="track">
+          <div class="track-title"><strong>Merciless Trend</strong></div>
+          <div class="track-description"><em>Unreleased(2025)</em></div>
+          <iframe width="100%" height="100" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2006510563%3Fsecret_token%3Ds-Y1wdVtAqhWH&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/jai2000" title="Jai2k" target="_blank" style="color: #cccccc; text-decoration: none;">Jai2k</a> · <a href="https://soundcloud.com/jai2000/merciless-trend/s-Y1wdVtAqhWH" title="merciless trend" target="_blank" style="color: #cccccc; text-decoration: none;"></a></div>
+          </div>
+        <!-- Track 4 -->
+        <div class="track">
+          <div class="track-title"><strong>Condition</strong></div>
+          <div class="track-description"><em>Unreleased(2025)</em></div>
+          <iframe width="100%" height="100" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2006510571%3Fsecret_token%3Ds-A7nMgWwsFJD&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/jai2000" title="Jai2k" target="_blank" style="color: #cccccc; text-decoration: none;">Jai2k</a> · <a href="https://soundcloud.com/jai2000/condition-1/s-A7nMgWwsFJD" title="condition" target="_blank" style="color: #cccccc; text-decoration: none;"></a></div>
+        </div>  
+        <!-- Track 2 -->
+        <div class="track">
+          <div class="track-title"><strong>Oddball</strong></div>
+          <div class="track-description"><em>Unreleased(2025)</em></div>
+          <iframe width="100%" height="100" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2006510531%3Fsecret_token%3Ds-KtqtAIvMoJV&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/jai2000" title="Jai2k" target="_blank" style="color: #cccccc; text-decoration: none;">Jai2k</a> · <a href="https://soundcloud.com/jai2000/oddball/s-KtqtAIvMoJV" title="oddball" target="_blank" style="color: #cccccc; text-decoration: none;"></a></div>
+        </div>
+        
       </div>
-    <div class="track">
-      <div class="track-title"><strong>Lookas - Off Guard (Intrex Remix) (2018 Release)</strong></div>
-      <div class="track-description"><em>First place winning entry for a remix content hosted by Lookas and Splice in 2018, officially released in the Off Guard remix EP alongside Sam Lamar under my previous alias, Intrex.</em></div>
-      <iframe width="100%" height="100" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2006510555%3Fsecret_token%3Ds-YzQ6LtgSLFe&color=&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #333;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/jai2000" title="Jai2k" target="_blank" style="color: #cccccc; text-decoration: none;">Jai2k</a> · <a href="https://soundcloud.com/jai2000/off-guard-rmx/s-YzQ6LtgSLFe" title="Lookas - Off Guard (Intrex Remix)" target="_blank" style="color: #333; text-decoration: none;"></a></div>
-      </div>
-     <div class="track">
-      <div class="track-title"><strong>Bee Gees - Stayin' Alive (<em>Unofficial</em> Intrex Remix) (2018 Release)</strong></div>
-      <div class="track-description"><em>Unofficial remix of Bee Gee's Stayin' Alive made in 2018 under previous alias(Intrex).</em></div>
-      <iframe width="100%" height="100" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2006510527%3Fsecret_token%3Ds-UOetoiephai&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/jai2000" title="Jai2k" target="_blank" style="color: #cccccc; text-decoration: none;">Jai2k</a> · <a href="https://soundcloud.com/jai2000/stayin-alive-2018/s-UOetoiephai" title="stayin alive 2018" target="_blank" style="color: #cccccc; text-decoration: none;"></a></div>
-    </div> 
-    <!-- Track 3 -->
-    <div class="track">
-      <div class="track-title"><strong>Neon World</strong></div>
-      <div class="track-description"><em>Original track released in 2019 under previous alias (Intrex).</em></div>
-      <iframe width="100%" height="100" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2006510583%3Fsecret_token%3Ds-F1BySyF9gZz&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/jai2000" title="Jai2k" target="_blank" style="color: #cccccc; text-decoration: none;">Jai2k</a> · <a href="https://soundcloud.com/jai2000/neon_world_faded_highlight/s-F1BySyF9gZz" title="neon_world_faded_highlight" target="_blank" style="color: #cccccc; text-decoration: none;"></a></div>
-    </div>
-    <!-- Track 5 -->
-    <div class="track">
-      <div class="track-title"><strong>Path Branch</strong></div>
-      <div class="track-description"><em>Original track released in 2021 under previous alias (Intrex).</em></div>
-      <iframe width="100%" height="100" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2006510575%3Fsecret_token%3Ds-NdCluXCupvf&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/jai2000" title="Jai2k" target="_blank" style="color: #cccccc; text-decoration: none;">Jai2k</a> · <a href="https://soundcloud.com/jai2000/path-branch/s-NdCluXCupvf" title="path branch" target="_blank" style="color: #cccccc; text-decoration: none;"></a></div>
-    </div>
-    <!-- Track 4 -->
-    <div class="track">
-      <div class="track-title"><strong>Getaway</strong></div>
-      <div class="track-description"><em>Original track released in 2019 under previous alias (Intrex).</em></div>
-      <iframe width="100%" height="100" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2006510551%3Fsecret_token%3Ds-NRySjxrnDBK&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/jai2000" title="Jai2k" target="_blank" style="color: #cccccc; text-decoration: none;">Jai2k</a> · <a href="https://soundcloud.com/jai2000/getaway/s-NRySjxrnDBK" title="getaway" target="_blank" style="color: #cccccc; text-decoration: none;"></a></div>
-    </div>  
-    <!-- Track 3 -->
-    <div class="track">
-      <div class="track-title"><strong>Golf Pawn</strong></div>
-      <div class="track-description"><em>Unreleased(2020)</em></div>
-      <iframe width="100%" height="100" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2006510519%3Fsecret_token%3Ds-4GKOtOp8A9N&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/jai2000" title="Jai2k" target="_blank" style="color: #cccccc; text-decoration: none;">Jai2k</a> · <a href="https://soundcloud.com/jai2000/golf-pawn/s-4GKOtOp8A9N" title="golf pawn" target="_blank" style="color: #cccccc; text-decoration: none;"></a></div>
-    </div>
-    <div class="track">
-      <div class="track-title"><strong>Breathing</strong></div>
-      <div class="track-description"><em>Unreleased(2020)</em></div>
-      <iframe width="100%" height="100" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2006510567%3Fsecret_token%3Ds-9ou1gpX7TQ5&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/jai2000" title="Jai2k" target="_blank" style="color: #cccccc; text-decoration: none;">Jai2k</a> · <a href="https://soundcloud.com/jai2000/breathing/s-9ou1gpX7TQ5" title="breathing" target="_blank" style="color: #cccccc; text-decoration: none;"></a></div>
-    </div>
-    <div class="track">
-      <div class="track-title"><strong>Natasha Beddingfield - Unwritten (Jai2k Remix)</strong></div>
-      <div class="track-description"><em>Unreleased / Unofficial bootleg remix of "Unwritten" by Natasha Beddingfield (2024).</em></div>
-      <iframe width="100%" height="100" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2006510547%3Fsecret_token%3Ds-Qg1wNGNTpT9&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/jai2000" title="Jai2k" target="_blank" style="color: #cccccc; text-decoration: none;">Jai2k</a> · <a href="https://soundcloud.com/jai2000/unwritten-jai2k-rmx/s-Qg1wNGNTpT9" title="unwritten jai2k rmx" target="_blank" style="color: #cccccc; text-decoration: none;"></a></div>
-      </div>
-    <div class="track">
-      <div class="track-title"><strong>This Amazin' (feat. 13erry)</strong></div>
-      <div class="track-description"><em>Unreleased(2023) vocals by 13erry</em></div>
-      <iframe width="100%" height="100" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2006510559%3Fsecret_token%3Ds-OyS02hKwohj&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/jai2000" title="Jai2k" target="_blank" style="color: #cccccc; text-decoration: none;">Jai2k</a> · <a href="https://soundcloud.com/jai2000/this-amazin/s-OyS02hKwohj" title="this amazin&#x27; (feat. 13erry)" target="_blank" style="color: #cccccc; text-decoration: none;"></a></div>
-    </div>
-    <!-- Track 2 -->
-    <div class="track">
-      <div class="track-title"><strong>Plot Armor</strong></div>
-      <div class="track-description"><em>Unreleased(2025)</em></div>
-      <iframe width="100%" height="100" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2006510523%3Fsecret_token%3Ds-BOR9WYco2ns&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/jai2000" title="Jai2k" target="_blank" style="color: #cccccc; text-decoration: none;">Jai2k</a> · <a href="https://soundcloud.com/jai2000/plot-armor/s-BOR9WYco2ns" title="plot armor" target="_blank" style="color: #cccccc; text-decoration: none;"></a></div>
-    </div>
-
-    <div class="track">
-      <div class="track-title"><strong>Blind Conviction</strong></div>
-      <div class="track-description"><em>Unreleased(2025)</em></div>
-      <iframe width="100%" height="100" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2006510587%3Fsecret_token%3Ds-nCmgwhozXBh&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/jai2000" title="Jai2k" target="_blank" style="color: #cccccc; text-decoration: none;">Jai2k</a> · <a href="https://soundcloud.com/jai2000/blind-conviction/s-nCmgwhozXBh" title="blind conviction" target="_blank" style="color: #cccccc; text-decoration: none;"></a></div>
-    </div>
-    <div class="track">
-      <div class="track-title"><strong>Merciless Trend</strong></div>
-      <div class="track-description"><em>Unreleased(2025)</em></div>
-      <iframe width="100%" height="100" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2006510563%3Fsecret_token%3Ds-Y1wdVtAqhWH&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/jai2000" title="Jai2k" target="_blank" style="color: #cccccc; text-decoration: none;">Jai2k</a> · <a href="https://soundcloud.com/jai2000/merciless-trend/s-Y1wdVtAqhWH" title="merciless trend" target="_blank" style="color: #cccccc; text-decoration: none;"></a></div>
-      </div>
-    <!-- Track 4 -->
-    <div class="track">
-      <div class="track-title"><strong>Condition</strong></div>
-      <div class="track-description"><em>Unreleased(2025)</em></div>
-      <iframe width="100%" height="100" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2006510571%3Fsecret_token%3Ds-A7nMgWwsFJD&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/jai2000" title="Jai2k" target="_blank" style="color: #cccccc; text-decoration: none;">Jai2k</a> · <a href="https://soundcloud.com/jai2000/condition-1/s-A7nMgWwsFJD" title="condition" target="_blank" style="color: #cccccc; text-decoration: none;"></a></div>
-    </div>  
-    <!-- Track 2 -->
-    <div class="track">
-      <div class="track-title"><strong>Oddball</strong></div>
-      <div class="track-description"><em>Unreleased(2025)</em></div>
-      <iframe width="100%" height="100" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2006510531%3Fsecret_token%3Ds-KtqtAIvMoJV&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/jai2000" title="Jai2k" target="_blank" style="color: #cccccc; text-decoration: none;">Jai2k</a> · <a href="https://soundcloud.com/jai2000/oddball/s-KtqtAIvMoJV" title="oddball" target="_blank" style="color: #cccccc; text-decoration: none;"></a></div>
-    </div>
-    
-  </div>
-</section>
+    </section>
+   
 
     <!-- ABOUT ME (4) -->
     <section id="about-me">
@@ -404,8 +427,7 @@
         based out of Miami. Music is a big part of who I am: I grew up with, and was raised by talented 
         musicians on both sides of my family. At 12, my dad introduced me to my first 
         production software, Logic Pro 9. From there I was hooked. 
-        By 
-        the time I was 15, I began releasing electronic music under the alias Intrex, 
+        By the time I was 15, I began releasing electronic music under the alias Intrex, 
         drawing inspiration from artists like Noisia, Koan Sound, and Skrillex.
       </p>
       <p>
@@ -418,11 +440,12 @@
       <p>
         I now offer professional sound services for ads, sonic branding, short films, 
         YouTube videos, and video games — specializing in immersive and dynamic 
-        sound design & music. As I'm preparing my debut album in 2025, I'm excited about the role of artistic sound design in music 
-        and multimedia, and the increasing creative freedom we enjoy from rapidly evolving audio tech & collective collaboration.
-        Whether you’re a filmmaker, brand, indie game developer, or artist, i’m 
-        eager to hear about your project and how i could help bring it to life!
-        </p>
+        sound design & music. As I'm preparing my debut album in 2025, I'm excited about the role 
+        of artistic sound design in music and multimedia, and the increasing creative freedom we 
+        enjoy from rapidly evolving audio tech & collective collaboration.
+        Whether you’re a filmmaker, brand, indie game developer, or artist, I’m 
+        eager to hear about your project and how I could help bring it to life!
+      </p>
     </section>
 
     <!-- SERVICES (5) -->
@@ -498,8 +521,47 @@
   <!-- FOOTER -->
   <footer>
     <p>© 2025 Jai2k. All rights reserved.</p>
+    <div class="social-icons">
+      <!-- Pinterest -->
+      <a href="https://pin.it/65RDsR5UJ" target="_blank" rel="noopener">
+        <i class="fab fa-pinterest"></i>
+      </a>
+      <!-- TikTok -->
+      <a href="https://www.tiktok.com/@jai2kmusic?is_from_webapp=1&sender_device=pc" 
+         target="_blank" 
+         rel="noopener">
+        <i class="fab fa-tiktok"></i>
+      </a>
+      <!-- Twitter (X) -->
+      <a href="https://x.com/Jai2k_" target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <!-- Bluesky (no official icon, using globe as placeholder) -->
+      <a href="https://bsky.app/profile/jai2k.com" target="_blank" rel="noopener">
+        <i class="fas fa-globe"></i>
+      </a>
+      <!-- YouTube -->
+      <a href="https://youtube.com/@jai_2k?si=50IdKQWLmlnRsbr0" target="_blank" rel="noopener">
+        <i class="fab fa-youtube"></i>
+      </a>
+      <!-- Facebook -->
+      <a href="https://www.facebook.com/people/Jai2k/61571469945289/" target="_blank" rel="noopener">
+        <i class="fab fa-facebook"></i>
+      </a>
+      <!-- Reddit -->
+      <a href="https://www.reddit.com/user/jai2kmusic/" target="_blank" rel="noopener">
+        <i class="fab fa-reddit"></i>
+      </a>
+      <!-- Snapchat -->
+      <a href="https://www.snapchat.com/add/jai2kmusic" target="_blank" rel="noopener">
+        <i class="fab fa-snapchat-ghost"></i>
+      </a>
+      <!-- Bandcamp -->
+      <a href="https://jai2k.bandcamp.com" target="_blank" rel="noopener">
+        <i class="fab fa-bandcamp"></i>
+      </a>
+    </div>
   </footer>
 </body>
 </html>
-
 
