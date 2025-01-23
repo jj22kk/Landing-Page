@@ -259,7 +259,17 @@
     }
 
     /* Responsive */
-    @media (max-width: 600px) {
+    @media (max-width: 600px) 
+          {
+      .logo-header {
+    max-width: 100%; /* Allow the container to scale down */
+    padding: 0 16px; /* Optional: Add some padding to prevent edge overflow */
+      }
+
+      .logo-header img {
+        max-width: 90%; /* Scale the image down slightly */
+        height: auto; /* Maintain aspect ratio */
+      }
       .video-section {
         flex-direction: column; /* Stack video and text vertically */
         gap: 15px; /* Reduce spacing for smaller screens */
